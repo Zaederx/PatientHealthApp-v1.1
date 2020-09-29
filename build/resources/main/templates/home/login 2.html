@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<style>
+    .btn-space{
+    	margin-right: 35px;
+    	margin-bottom: 10px;
+    }
+    </style>
+	<meta th:name="_csrf" th:content="${_csrf.token}"/>
+	<meta th:name="_csrf_header" th:content="${_csrf.headerName}">
+	<!-- For Google Sign-In -->
+	<meta name="google-signin-scope" content="openid profile email https://www.googleapis.com/auth/calendar">
+	<meta name="google-signin-client_id" content="855286502115-emk3m2e458bfmrtsed1o3b7qsmq3bkht.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<div class="jumbotron text-center">
+  <h1>Login</h1>
+  <h3>Just one step, and your're on your way</h3>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center row">
+        <ul class="navbar-nav">
+          <li class="nav-item" >
+            <a class="nav-link" th:href="@{/home}"><button class="btn btn-primary">Home</button></a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" th:href="@{/login}"><button class="btn btn-secondary active">Login</button></a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" th:href="@{/home/register}"><button class="btn btn-primary">Register</button></a>
+          </li>
+           <li class="nav-item" >
+            <a class="nav-link" th:href="@{/home/register}" href="#" onclick="signOut();"><button class="btn btn-primary">Sign out</button></a>
+          </li>
+        </ul>
+      </nav>
+</div>
+
+
+<div th:if="${param.error}" class="alert alert-info show text-sm-center">Login unsuccessful.</div>
+<div th:if="${param.logout}" class="alert alert-primary show text-sm-center">You have successfully logged out.</div>
+<div id="messages"></div>
+
+<div class="container d-flex flex-sm-column col-sm-12 justify-content-center align-items-center">
+
+  <div class="row">
+  <div id="btn-g-signin" class="g-signin2 col-sm-4 btn-space" data-onsuccess="onSignIn" data-longtitle="true" data-theme="dark"></div><!-- if needed later data-redirecturi="https://localhost:8090/" -->
+  
+  
+  <!-- </div> -->
+  <h3 class="text-muted col-sm-2">OR</h3>
+  <!-- <div class="row"> -->
+  <form class="form-group col-sm-4" th:action="@{/validate}" th:object="${userLoginForm}" method="POST">
+
+    <label> Username: </label>
+    <input id="username" class="form-control" type="text" name="username" th:field="*{username}" /> <br>
+    <p class="alert alert-info" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" > </p>
+   	
+    <label> Password: </label>
+    <input class="form-control" type="password" name="password" th:field="*{password}"/> <br> <br>
+    <p class="alert alert-info" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> </p>
+    
+    <label>Remember Me</label>
+    <input type="checkbox" name="rememberMe" th:field="*{rememberMe}" value="true"/> <br>
+    
+    <button class="btn btn-secondary" type="submit" value="Login">Login</button>
+    
+  </form>
+	</div>
+	
+</div>
+<script>
+var auth2;
+/* 
+ * Bassed on google developer docs examples:
+ * See https://developers.google.com/identity/sign-in/web/backend-auth */
+//Initialize Google APIS
+function init() {
+	 console.log('method: "init" called')
+	 gapi.load('auth2', function() {
+		auth2 = gapi.auth2.init(
+			{
+			client_id:'855286502115-emk3m2e458bfmrtsed1o3b7qsmq3bkht.apps.googleusercontent.com'
+			}
+		);
+		
+	 }); 
+}
+
+
+$('#btn-g-signin').click(function() {
+	auth2.grantOfflineAccess().then(signInCallback);
+});
+
+var csrfToken = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
+
+function signInCallback(authResult) {
+  if (authResult['code']) {
+
+    // Hide the sign-in button now that the user is authorized, for example:
+   //  $('#signinButton').attr('style', 'display: none');
+
+    // Send the code to the server
+    $.ajax({
+      type: 'POST',
+      url: 'https://localhost:8090/oauthentication/store-code',
+      headers: {
+    	  'X-CSRF-TOKEN' : csrfToken
+      },
+      contentType: 'application/octet-stream; charset=utf-8',
+      success: function(data) {
+    	
+    	var m = '';
+        if (data.response == true){
+        	location.reload();
+        }
+        else {
+        
+        }
+        
+      },
+      processData: false,
+      data: authResult['code']
+    });
+  } else {
+    $('#messages').html('<p class="alert alert-info">Google Sign In Error. Please Try again.</p>');
+  }
+}
+
+
+
+ 
+
+    
+
+    </script>
+
+</html>

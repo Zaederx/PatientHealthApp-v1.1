@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- CSRF  -->
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+	<meta th:name="_csrf_header" th:content="${_csrf.headerName}">
+	
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app-css.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Patient Home</title>
+  </head>
+  <body>
+  <!-- Header/Banner -->
+    <div class="jumbotron text-center">
+      <h1>Medication</h1>
+      <h3></h3>
+
+     <!-- Navigation Bar -->
+     <div th:replace="patient/patient-nav"></div>
+    </div>
+
+    <!-- Content div -->
+    <div class="container col-sm-10" ><!-- style="background-color:grey;" -->
+
+
+	<div id="response-messages"></div>
+    	
+
+
+	<div id="add-patient-accordion" class="accordion">
+    	<!-- CARD 1 - Request New Appointment  -->
+		  <div class="card text-center">
+		    <div class="card-header" id="headingOne">
+		        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#patientCollapse" aria-expanded="false" aria-controls="patientCollapse">
+		          Request New Appointment
+		        </button>
+		    </div>
+		    <div id="patientCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#add-patient-accordion">
+		      <div class="card-body">
+			    	<br>
+			    	<div class="">
+			    		<!-- Appointment Request Form - Ajax version -->
+    					<form id="appointment-request-form" class="form-group col-sm-8 offset-sm-2">
+					    	<label for="topics">Appointment Type</label>
+					    	<select class="form-control"id="topics" name="appointmentType">
+					    		<option value="1">Check Up</option>
+					    		<option value="2">Medical Question</option>
+					    		<option value="3">Medical Concern</option>
+					    		<option value="4">Urgent</option>
+					    		<option value="5">Travel Related</option>
+					    		<option value="6">Prescription Review</option>
+					    		<option value="7">Mental Health</option>
+					    		<option value="8">Other</option>
+					    	</select>
+			    	
+					    	<label for="summary">Summary</label>
+					    	<input id="summary" class="form-control text-center"type="text" name="summary"></input>
+			
+					    	<label for="description">Description</label>
+					    	<textarea form="appointment-request-form" id="description" class="form-control text-center" name="description"></textarea>
+			
+							<!-- Idea for another iteration  -->
+					    	<!-- <label for="date">Date</label>
+					    	<input id="date" class="form-control text-center"type="date" name="date"></input> -->
+							<br>
+					    	<label>Time Preference:</label><br>
+					    	<label for="morning">Morning</label><input id="morning" class="text-center"type="radio" name="session" value="true" checked></input>
+					    	<label for="afternoon">Afternoon</label><input id="afternoon" class="text-center"type="radio" name="session" value="false"></input>
+		    	
+		    			</form>
+		    			<button id="submitBtn" class="btn btn-primary" onclick="ajaxPost();">Submit</button>
+		    		</div>
+		      </div>
+		    </div>
+		  </div>
+    	</div><!-- END OF ACCORDIAN DIV -->
+    	
+    	
+    	<br><br>
+    	<div class="row">
+	    	<!-- Next Appointments -->
+	    	<div class="col-sm-4">
+	    		<!-- Table -->
+	    		<table class="table table-bordered table-striped">
+	    			<thead>
+	    				<tr>
+		    				<th colspan="1">Current Prescriptions</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody id="appointments-next">
+		    		<!-- Filled via ajax method -->
+	    			</tbody>
+	    		</table>
+	    	</div>
+
+	    	<!-- Appointment Information  -->
+	    	<div class="col-sm-4">
+	    		<!-- Table -->
+	    		<table class="table table-bordered table-striped">
+	    			<thead>
+	    				<tr>
+		    				<th colspan="1">Prescription Information</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody id="appointment-selected">
+		    		<!-- Filled via ajax method -->
+	    			</tbody>
+	    		</table>
+	    	</div>
+
+	    	<!-- Appointment Requests  -->
+	    	<div class="col-sm-4">
+	    		<!-- Table -->
+	    		<table class="table table-bordered table-striped">
+	    			<thead>
+	    				<tr>
+		    				<th colspan="1">Prescription Requests</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody id="appointment-requests" class="highlight-table-body-row" >
+		    		<!-- Filled via ajax method -->
+	    			</tbody>
+	    		</table>
+	    	</div>
+    	</div>
+    	
+    	<br><br><br><br><br><br>
+    </div>
+
+
+  </body>
+  <script>
+var dataPrescriptions;
+
+var selectedCurrentPatientId;
+var selectedPatientId;//patient selected to be added to doct's list
+var selectedDoctorId;
+/*Fetch list of patients from backend*/
+function getPrescriptions() {
+	$.ajax({
+		type:'GET',
+		url:'/ajax/patient/prescriptions',
+		success: function(data) {
+			dataPrescriptions = data;
+			if(data.response == false) {
+				$('#patient-doctor-table-body').html(data.message);
+			} 
+			else {
+				var m = "";//message
+				  for (var i = 0 ; i < data.listSize; i++ ) {
+					  m += '<tr onclick=selectPrescriptions('+i+',this);><td>'+data.doctorList[i].name+'</td>'
+					  + '<td>'+data.doctorList[i].username+'</td>'
+					  + '<td>'+data.doctorList[i].specialty+'</td>'
+					  + '<td>'+data.doctorList[i].email+'</td></tr>'
+				  }
+				  console.log('prescriptionList:'+m);
+				  $('#prescriptions-table-body').html(m);
+			}
+		},
+		error: function() {
+			$('#prescriptions-table-body').html('<tr><td>Error retrieving patient details, please try again or contact administration for help.</td></tr>');
+		}
+	});
+}
+
+
+
+
+
+/*Select doctor for adding a patient to */
+function selectDoctor(index, thisRow) {
+	selectedDoctorId = dataDoctorSearchList.doctorList[index].id;
+	getCurrentPatients(selectedDoctorId);
+	console.log('selectedDoctorId:'+selectedDoctorId);
+	$('#doctor-search-table-body tr').css('background-color', '');//reset table style
+	$(thisRow).css('background-color', '#86f9d6');
+}
+
+var csrfToken = $("meta[name='_csrf']").attr("content");//needed for post requests
+
+
+
+
+$(document).ready(getDoctorsList());
+
+$(document).ready(function() {
+	$('#current-patient-table-body').html('<tr><td class="highlight" colspan="4">Please select a doctor to view their patients.</td></tr>');
+})
+
+
+
+</script>
+  
+  

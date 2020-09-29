@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "patienthealthapp-1586796942280",
+  "private_key_id": "4dc7174a1fd711d65a777b6f5473b9acada29cc8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCtWLhjjGPSnavM\nmul7YwxX6luUNzjJZIQ7sW4wseEJzFjuiRMlf3VJPIxrwIFMRshV8JYnfNmfYMSV\nlkdSMoUx2VvE6mffVcXuVEXVQw3IynVfU87lirnec+BqTjgr2BKw3aZ9Y7VbdfoH\niykmCROpGRfrfBrw5okZ0I1Jeo5wMcIOWQtX8qwY7P8IGJUvGLNDJaeSbWdcu1I9\nL0yWGDr7A6nZPUo3izOVZcvz2nkiCrD3mS+U1Bps2iu+vN/MdEZp0isfOkjINuEm\niT4l8YnDPVWBuP3MLDnVoc4AOuhqCSZcyJ6YYYnP/tK6AdbURWX65KALUUlUIva1\nXoboOanfAgMBAAECgf8FYwAM8FcwBX4aEJUA9rAhnwiVFJjb57c+pKvkBUd7C6ua\nq0gPYCo7g2jE3bJnbOrjtExYCu4eTZV24sEcbhfQkNil0lwtsrG5oGXT/VU3FvZj\nD5RGaFUqRnXM1+QEGx4A28+zhjKxXRlvPaJC81iCji0ilaTvginRKcovyD5oiQFG\nY9C3+QDH1w0LwS3FU6zV17EndBd6yLIoArDbBHZEHQQH9kDKOAEwL1sSvRkSxDsw\n5zdgFTRjTTzMfkH0Ay+VYJ14UBtB5S+DjiXZw5cST3+kQoz/+rLmbh/b4PAo/QR7\n5Vx8TsscO8wFFWDH8HH46pQgSUq+c0K4/psn7pkCgYEA8apCpo2heqWiNaVUNrgw\ngT5N8VJn6L0SrFWhTEVii5ZMWPySH0HZknHs/zBA3NEGBqTIGZGsUQDM2LXtWeYJ\nvh0ELHTG9diPF8iOs2FEptU2ya6VVBcPX5CWjPtx9mca8nEHzMLuGlRhOv078Uyv\nnT5p7dszy8anMStmfuuj/zkCgYEAt6EHD80Vu/CwWnbCXtLyswN9GFYGeqDIBNWp\na5NDNcWUNycqVE11hrLjb4771m474TEPEHNyQxqc+fythvjNqVEMJhycbKrK2NlN\nPkMg/e/Igh0Zi+QnM3CjpRNV88W4vYK/ptDLptYvbMkfYycJ3FNx/iHjCXboVFE5\nt4hf2dcCgYEA4yp+DpwSD/1E1pK779gCWGtdzxv8ay3YMMEpp02NzdMRn5CENveq\nctu+wT71qdyegn5BTq+9wEM1S/zvyVLRE7Go67U2FYFlOSEg6wPjCcRhBQKkgnBO\n1jFPI+V1Af93uDCB+Xu/YGazI0VKJJBGgFRcNOeZ79Kj9Tdr2KDe/xkCgYA8Bci3\nI4RNMHmUuGkEcdOfLC7Bu6zWfKOk4OpGHZbEhtbRyF2PvNoDs4mgN46eIt4z18Ni\nzzm0MYjKNgvKqJ0hETr1YjjHVHSFuVIEXhD0sGJMFZL6JROjPthe5xkbW6/tUkWv\nE2TeHfjWiE9YK7SPbj8+oHkD6Pg8R2ikU1FxdQKBgQCriFDFfawf6mKNOm1zrRqo\nNQJOuSyTf5Vp9LyxL8vI+Cy/3jHlCpJDYMxGlumJQ4FBQ4lX2KkSFttSHqwJAqsH\nvB5byUNJxCDJW3UMoaen8joRqUug8MK+Sl7lyx60MxubpqSnTCQGXXNwz/VU83qj\ncsQ/ew9x4Z0zX3JLHklKCw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "admin-758@patienthealthapp-1586796942280.iam.gserviceaccount.com",
+  "client_id": "111500260355021670403",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/admin-758%40patienthealthapp-1586796942280.iam.gserviceaccount.com"
+}

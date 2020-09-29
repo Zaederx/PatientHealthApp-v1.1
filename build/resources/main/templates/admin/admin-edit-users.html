@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta th:name="_csrf" th:content="${_csrf.token}"/>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" th:href="@{/css/app-css.css}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <title>Edit User</title>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1>Admin - Edit User</h1>
+    <h3></h3>
+     <div th:replace="admin/admin-nav"></div><!-- navigation -->
+  </div>
+	<div class="alert alert-info" th:if=${param.success} th:text="${param.success}">
+	</div>
+	<!-- Container Div -->
+	<div class="container text-center col-sm-10 align-items-center">
+	
+		<div class="btn-group" data-toggle="buttons">
+		  <label class="btn btn-info">
+		    <input type="radio" onfocus="setSearchType('username');" name="user-search-type" id="user-search-username" autocomplete="off"> Username
+		  </label>
+		  <label class="btn btn-secondary active">
+		    <input type="radio" onfocus="setSearchType('name');" name="user-search-type" id="user-search-name" autocomplete="off" checked> Name
+		  </label>
+		</div><br>
+	   <input id="user-searchbar" class="form-control" type="text" placeholder="Search Users...">
+	   <div class="table-flow">
+	    <table id="user-details-table" class="table table-bordered table-striped">
+	    			<thead>
+	    				<tr>
+		    				<th colspan="4">Users</th>
+	    				</tr>
+	    				<tr>
+		    				<th colspan="1">Type</th>
+		    				<th colspan="1">Username</th>
+		    				<th colspan="1">Name</th>
+		    				<th colspan="1">Email</th>
+			    		</tr>
+	    			</thead>
+	    			<tbody id="user-search-table-body" class="highlight-table-body-row">
+	    			<!-- Fill via ajax method -->
+	    			
+	    			</tbody>
+	    		</table>
+	    		
+	    		<button id="btn-edit" onclick="editUser();" class="btn btn-primary">Edit</button>
+	    </div>
+	    <br>
+	    <hr class="hr-divider">
+	    <br>
+	    <table class="container text-center table table-bordered">
+	    	<tr>
+	    		<th>Edit User</th>
+	    	</tr>
+	    </table>
+	    
+	    <div class="container col-sm-10 justify-content-center">
+	    
+	   	<form class="form-group" action="#" th:action="@{/admin/register-user}" th:object="${userRegForm}" method="POST">
+	   	
+	   		<input type="hidden" id="user-type" name="user-type" th:field="*{type}">
+	   		<input type="hidden" id="user-id" th:field="*{id}">
+		   	<label for="user-name">Name</label>
+		   	<input id="user-name" class="form-control text-center" type="text" th:field="*{name}" placeholder="Henry Thompson" autocomplete="off"></input>
+		   <!--TODO - dismiss th:if alerts  -->
+		   	<p class="alert alert-info" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+		   	<div id="user-name-error"></div>
+		   	
+		   	<div id="doctor-gmc-elements" style="display:none">
+			   	<label>GMC Reference Number</label><!--General Medical Council Number - Each doctor in UK is meant to have one  -->
+	    		<input id="doctor-gmc" class="form-control text-center"  th:field="*{gmcNum}" placeholder="3494984098345" autocomplete="off"></input>
+			   	<div id="doctor-gmc-error"></div>
+			   	<br>
+		   	</div>
+		   	
+		   	<label for="user-username">Username</label>
+		   	<input id="user-username" class="form-control text-center" type="text" th:field="*{username}" placeholder="Enstein92" autocomplete="off"></input>
+		   	<div id="user-username-error"></div>
+		   	
+		   	<label for="user-email">Email</label>
+		   	<input id="user-email" class="form-control text-center" type="text"  th:field="*{email}" placeholder="email@email.com" autocomplete="off"></input>
+		  	<div id="user-email-error"></div>
+		   	<br><br>
+		   	
+		   	
+		   	
+		   	<div class="btn-group" data-toggle="buttons">
+			  <label class="btn btn-info">
+			    <input type="radio" onfocus="togglePasswordVisibility(this);" name="user-password-visibility" id="user-show-password" autocomplete="off"> Show
+			  </label>
+			  <label class="btn btn-secondary active">
+			    <input type="radio" onfocus="togglePasswordVisibility(this);" name="user-password-visibility" id="user-hide-password" autocomplete="off" checked> Hide
+			  </label>
+			</div><br>
+		   	
+		   	<label for="user-password">Password</label>
+		   	<input id= "user-password" class="form-control text-center" type="password" th:field="*{password}" placeholder="SomeThingICanRemeber!56" 
+		   	pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="off"></input>
+		   	<div id="user-password-error" th:error="*{password}"></div>
+		   	<br>
+		   	<label for="user-passwordTwo">Repeat Password</label>
+		   	<input id="user-passwordTwo" class="form-control text-center" type="password" th:field="*{password2}" placeholder="SomeThingICanRemeber!56" autocomplete="off"/>
+		   	
+		   	<br>
+		   	<button id="reg-btn-user" class="btn btn-primary" type="submit">Submit Edit Form</button>
+    	</form>
+	    
+	 </div>
+
+	    
+	</div> <!-- container div end  -->
+
+</body>
+<script>
+
+
+const D = '0';
+const P = '1';
+const A = '2';
+var userIndex;
+var userType = P;//default
+var searchType = 'name';
+var dataSearch;
+var selectedUserId;
+function setUserType(index) {
+	typeName = dataSearch.users[index].role;
+	
+	if (typeName == 'PATIENT') {
+		userType = P;
+	}
+	else if (typeName == 'DOCTOR') {
+		userType = D;
+	}
+	else if (typeName == 'ADMIN') {
+		userType = A;
+	}
+	console.log('userType: '+userType);
+}
+
+function setSearchType(type) {
+	searchType = type;
+}
+
+/**
+ * Puts user Details in form
+ * and prepares form for submission.
+ * Sets hidden "usertype" field with 
+ * selected usertype;
+ */
+function editUser() {
+	 if (userType == D) {//IF USER == DOCTOR
+		 console.log('show gmc elements');
+		 $('#doctor-gmc-elements').show();
+	 } else {
+		 console.log('hide gmc elements');
+		 $('#doctor-gmc-elements').hide();
+	 }
+	//Set current usertype
+	$('#user-type').val(userType);
+	
+	//Set id
+	$('#user-id').val(dataSearch.users[userIndex].id);
+	
+	$('#user-name').val(dataSearch.users[userIndex].name);
+	
+	$('#user-username').val(dataSearch.users[userIndex].username);
+	
+	$('#user-email').val(dataSearch.users[userIndex].email);
+	
+	
+}
+
+var csrfToken = $("meta[name='_csrf']").attr("content");//needed for post requests
+/**
+ * Retrieves 10 top users that match search criteria
+ */
+$(document).ready(
+	$('#user-searchbar').keyup(function() {
+		$.ajax({
+			type:'GET',
+			url:'/ajax/admin/search/users/'+searchType+'/'+$('#user-searchbar').val(),
+			success: function(data) {
+				dataSearch = data;
+				var m = "";
+				for (var i = 0; i < data.count; i++) {
+					m += '<tr onclick="selectUser('+i+', this);"><td>'+data.users[i].role+'</td>'
+					+ '<td>'+data.users[i].name+'</td>'
+					+ '<td>'+data.users[i].username+'</td>'
+					+ '<td>'+data.users[i].email+'</td>'
+					+ '</tr>';
+				}
+				$('#user-search-table-body').html(m);
+			},
+			error: function() {
+				
+			}
+		});
+		
+	})
+);
+
+/*Select patient to add to doctor's list */
+function selectUser(index,thisRow) {
+	userIndex = index;
+	setUserType(index);
+	selectedUserId = dataSearch.users[index].id;
+	console.log('selectedUserId:'+selectedUserId);
+	$('#user-search-table-body tr').css('background-color', '');//reset table style
+	$(thisRow).css('background-color', '#86f9d6');
+}
+
+/* Function to toggle password visibility.
+ * Works for each form independently.
+ * i.e. toggling for patient form, will not affect 
+ * doctor form visibility.
+ */
+function togglePasswordVisibility(thisInput) {
+	console.log('togglePasswordVisibility');
+	var id = $(thisInput).attr('id');
+	console.log('id: '+id);
+	userForm = 'user';
+	
+	if(id.includes('show')){
+		console.log('show'+'#'+userForm+'-password');
+		//show password field text
+		$('#'+userForm+'-password').attr('type', 'text');
+		$('#'+userForm+'-passwordTwo').attr('type', 'text');
+	}
+	
+	else if (id.includes('hide')) {
+		console.log('hide'+'#'+userForm+'-password');
+		//hide password fields
+		$('#'+userForm+'-password').attr('type', 'password');
+		$('#'+userForm+'-passwordTwo').attr('type', 'password');
+	}
+
+}
+
+function hideGMC() {
+	$('#doctor-gmc').hide();
+}
+
+function showGMC() {
+	$('#doctor-gmc').show();
+}
+
+/* Get Error Request Parameter */
+var params = new URLSearchParams(window.location.search);
+var error = params.has('error');
+
+//if there are errors - disable the cuurent registration button
+$(document).ready(function(){
+	validate();
+	validateGMC();
+	if (error == true) {disableButton();}
+});
+
+
+
+
+/*Makes button unusable
+ * Called when ever error message recieved
+ * from the server.
+ */
+function disableButton (regButton) {
+	/*remove old css*/
+	$(regButton).removeClass("btn-primary");
+	
+	/*add new css + attribute*/
+	$(regButton).attr("disabled",true);
+	$(regButton).addClass("disabled");
+	$(regButton).addClass("btn-secondary");
+}
+
+/*Make button usuable*/
+function enableButton (regButton) {
+	/*remove old css + attribute*/
+	$(regButton).attr("disabled",false);
+	$(regButton).removeClass("disabled");
+	$(regButton).removeClass("btn-secondary");
+	/*add new css*/
+	$(regButton).addClass("btn-primary");
+}
+
+
+function gmcAjax() {
+	var gmc = $('#doctor-gmc').val();
+	var name = $('#doctor-name').val();
+	$.ajax({
+		type:"GET",
+		url: '/national-medical-services/gmc/api/'+gmc+'/'+name,
+		success: function(result) {
+			console.log(result);
+			 if ($.trim(result) == '{}') {
+				console.log(result);
+			} else {
+				var str = JSON.stringify(result);
+				var data = JSON.parse(str);//doesn't seem to work without stringify in firefox for some reason
+				var res = data.response;
+				console.log("Ready functions working.");
+				
+				if (res == false){
+					disableButton();
+					$('#doctor-gmc-error').html('<p class="alert alert-info">'+data.message+'</p>');
+					$('#doctor-gmc-error').show();
+				}
+			}
+		},
+		error:function() {}
+	});
+}
+
+/**
+ * Validates Doctor GMC codes
+ */
+function validateGMC() {
+	$('#doctor-gmc').keyup(function() {
+		$('#doctor-gmc-error').hide();
+		enableButton();
+		gmcAjax();
+	});
+	
+	$('#doctor-name').keyup(function() {
+		if ($('#doctor-gmc').val() != '' &&  $('#doctor-gmc').val() != 'undefined') {
+			$('#doctor-gmc-error').hide();
+			enableButton();
+			gmcAjax();
+		}
+	});
+	
+}
+
+
+
+/*This function sends ajax request for the selected form.
+ * It validates common coponents of each form
+ * i.e. - username, password 
+ */  
+
+function validate(thisField,alertId, url, button) {
+	$(thisField).keyup(function(){
+		
+		//Input fields for this function to ignoreif (inputFieldId.includes('-name') || inputFieldId == '#doctor-gmc') {//nothing} 
+		
+		/*Send to server/backend for validation*/
+		
+			$(alertId).hide();//reset alert
+			enableButton(button);//reset button
+			
+			
+			$.ajax({
+				type:"GET",
+				url:url,
+				success: function(result) {
+					console.log(result);
+					 if ($.trim(result) == '{}') {
+						console.log(result);
+					} else {
+						var str = JSON.stringify(result);
+						var data = JSON.parse(str);//doesn't seem to work without stringify in firefox for some reason
+						var res = data.response;
+						console.log("Ready functions working.");
+						
+						//if response is for password validation
+						var m = '';
+						if (res == true && data.message == 'password'){
+							if (data.passwordLength != '') {
+								m += '<p class="alert alert-info">'+data.passwordLength+'</p>';
+							}
+							if (data.containsNumber != '') {
+								m += '<p class="alert alert-info">'+data.containsNumber+'</p>';
+							}
+							if (data.containsUppercase != '') {
+								m += '<p class="alert alert-info">'+data.containsUppercase+'</p>';
+							}
+							if (data.containsLowercase != '') {
+								m += '<p class="alert alert-info">'+data.containsLowercase+'</p>';
+							}
+							if (data.specialCharacters != '') {
+								m += '<p class="alert alert-info">'+data.specialCharacters+'</p>';
+							}
+							if (data.passwordsMatch != '') {
+								m += '<p class="alert alert-info">'+data.passwordsMatch+'</p>';
+							}
+							$(alertId).show();
+							$(alertId).html(m);
+						}
+						else if (res == true) {
+							disableButton(button);
+							var errorMessage = data.message;
+							$(alertId).show();
+							$(alertId).html('<p class="alert alert-info">'+errorMessage+'</p>');			
+							console.log(errorMessage);
+						}
+						else {
+							enableButton(button);
+							$(alertId).hide();
+							console.log("Available username.");
+						}
+					 } 
+				}
+			});
+		
+	});
+	
+}
+
+
+
+
+</script>
+</html>

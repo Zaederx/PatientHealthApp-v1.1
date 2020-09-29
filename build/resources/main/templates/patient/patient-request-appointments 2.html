@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- CSRF  -->
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+	<meta th:name="_csrf_header" th:content="${_csrf.headerName}">
+	
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app-css.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Patient Home</title>
+  </head>
+  <body>
+  <!-- Header/Banner -->
+    <div class="jumbotron text-center">
+      <h1>Welcome Home</h1>
+      <h3>Accessible health care at you convenience</h3>
+
+     <!-- Navigation Bar -->
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center row">
+        <ul class="navbar-nav">
+          <li class="nav-item" >
+            <a class="nav-link" th:href="@{/patient/home}"><button class="btn btn-secondary active">User Home</button></a>
+          </li>
+          <li class="nav-item">
+          	<div class="dropdown">
+		       	<a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		       	<button class="btn btn-primary dropdown-toggle">Services</button> 
+		       	</a>
+		       	<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		       		<a class="dropdown-item" th:href="@{/patient/appointments/manage}">Manage Appointments</a>
+		       		<a class="dropdown-item" th:href="@{/patient/medication/requests}">Medication Requests</a>
+		       		<a class="dropdown-item" th:href="@{/patient/prescriptions/view}">View Prescriptions</a>
+		       		<a class="dropdown-item" th:href="@{/patient/messages/manage}">Messages</a>
+		       	</div>
+        	</div>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" th:href="@{/patient/doctor/details}"><button class="btn btn-primary">Doctor Details</button></a>
+          </li>
+           <li class="nav-item" >
+            <a class="nav-link" th:href="@{/patient/details}"><button class="btn btn-primary">Account Details</button></a>
+            </li>
+          <li class="nav-item" >
+            <a class="nav-link" th:href="@{/patient/help}"><button class="btn btn-primary">Need Help?</button></a>
+          </li>
+           <li class="nav-item" >
+            <a class="nav-link" th:href="@{/logout}"><button class="btn btn-primary">Logout</button></a>
+          </li>
+        
+    
+        </ul> 
+
+      </nav>
+    </div>
+
+    <!-- Content div -->
+    <div class="container col-sm-10" ><!-- style="background-color:grey;" -->
+
+
+	<div id="response-messages"></div>
+    	
+
+
+	<div id="add-patient-accordion" class="accordion">
+    	<!-- CARD 1 - Request New Appointment  -->
+		  <div class="card text-center">
+		    <div class="card-header" id="headingOne">
+		        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#patientCollapse" aria-expanded="false" aria-controls="patientCollapse">
+		          Request New Appointment
+		        </button>
+		    </div>
+		    <div id="patientCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#add-patient-accordion">
+		      <div class="card-body">
+			    	<br>
+			    	<div class="">
+			    		<!-- Appointment Request Form - Ajax version -->
+    					<form id="appointment-request-form" class="form-group col-sm-8 offset-sm-2">
+					    	<label for="topics">Appointment Type</label>
+					    	<select class="form-control"id="topics" name="appointmentType">
+					    		<option value="1">Check Up</option>
+					    		<option value="2">Medical Question</option>
+					    		<option value="3">Medical Concern</option>
+					    		<option value="4">Urgent</option>
+					    		<option value="5">Travel Related</option>
+					    		<option value="6">Prescription Review</option>
+					    		<option value="7">Mental Health</option>
+					    		<option value="8">Other</option>
+					    	</select>
+			    	
+					    	<label for="summary">Summary</label>
+					    	<input id="summary" class="form-control text-center"type="text" name="summary"></input>
+			
+					    	<label for="description">Description</label>
+					    	<textarea form="appointment-request-form" id="description" class="form-control text-center" name="description"></textarea>
+			
+							<!-- Idea for another iteration  -->
+					    	<!-- <label for="date">Date</label>
+					    	<input id="date" class="form-control text-center"type="date" name="date"></input> -->
+							<br>
+					    	<label>Time Preference:</label><br>
+					    	<label for="morning">Morning</label><input id="morning" class="text-center"type="radio" name="session" value="true" checked></input>
+					    	<label for="afternoon">Afternoon</label><input id="afternoon" class="text-center"type="radio" name="session" value="false"></input>
+		    	
+		    			</form>
+		    			<button id="submitBtn" class="btn btn-primary" onclick="ajaxPost();">Submit</button>
+		    		</div>
+		      </div>
+		    </div>
+		  </div>
+    	</div><!-- END OF ACCORDIAN DIV -->
+    	
+    	
+    	<br><br>
+    	<div class="row">
+	    	<!-- Next Appointments -->
+	    	<div class="col-sm-4">
+	    		<!-- Table -->
+	    		<table class="table table-bordered table-striped">
+	    			<thead>
+	    				<tr>
+		    				<th colspan="1">Next Appointment</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody id="appointments-next">
+		    		<!-- Filled via ajax method -->
+	    			</tbody>
+	    		</table>
+	    	</div>
+
+	    	<!-- Appointment Information  -->
+	    	<div class="col-sm-4">
+	    		<!-- Table -->
+	    		<table class="table table-bordered table-striped">
+	    			<thead>
+	    				<tr>
+		    				<th colspan="1">Appointment Information</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody id="appointment-selected">
+		    		<!-- Filled via ajax method -->
+	    			</tbody>
+	    		</table>
+	    	</div>
+
+	    	<!-- Appointment Requests  -->
+	    	<div class="col-sm-4">
+	    		<!-- Table -->
+	    		<table class="table table-bordered table-striped">
+	    			<thead>
+	    				<tr>
+		    				<th colspan="1">Appointment Requests</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody id="appointment-requests" class="highlight-table-body-row" >
+		    		<!-- Filled via ajax method -->
+	    			</tbody>
+	    		</table>
+	    	</div>
+    	</div>
+    	
+    	<br><br><br><br><br><br>
+    </div>
+
+
+  </body>
+  <script>
+
+  var dataRequests;
+  var dataAppointments;
+  var selectedCurrentRequestId;
+  var selectedRequestIndex;
+  
+  /* Method to retrieve next appointments */
+  $(document).ready(function(){
+	  retrieveNextAppointments();
+  });
+
+  function selectAppointment(index, thisRow) {
+	  	selectedAppointmentId = dataAppointments.appointments[index].id;
+		console.log('selectedAppointmentId:'+selectedAppointmentId);
+		$('#appointments-next tr').css('background-color', '');//reset table style
+		$(thisRow).css('background-color', '#86f9d6');
+  }
+  /* Method to retrieve appointment requests
+   */
+   $(document).ready(function(){
+	   retrieveAppointmentRequests();
+  });
+  
+  function retrieveAppointmentRequests() {
+	  $.ajax({
+ 		  type:'GET',
+ 		  url:'/ajax/patient/appointment/requests/display',
+ 		  success:function(data) {
+ 			  dataRequests = data;//needed for latter access for outter scope
+ 			  if (data.response == true) {
+ 				  dataRequests = data;
+ 				  var m = "";
+ 				  for (var i = 0 ; i < data.listSize; i++ ) {
+ 					  m += '<tr onclick="selectRequest('+i+',this)"><td>'+data.requests[i].summary+'</td></tr>';
+ 					  /* + '<td><button onclick="editAppointment('+i+')">Edit</button>'
+ 					  + '<button onclick="deleteAppointment('+i+')\;">Delete</button></td></tr>'; */
+ 				  }  
+ 				 $('#appointment-requests').html(m);
+ 			  } else { m = data.message
+ 				 $('#response-messages').append('<div class="alert alert-info" role="alert">'+m+'</div>');
+ 			  }
+ 			  
+ 		  },
+ 		  error:function(){
+ 			  $('#response-messages').append('<div class="alert alert-info" role="alert">Appointment requests could not be displayed. Please try again or contact our administration team for help.</div>');
+ 		  }
+ 	  });
+  }
+ function retrieveNextAppointments() {
+  console.log('retrieveNextAppointments called');
+  $.ajax({
+	  type:'GET',
+	  url:'/calendar/patient/appointments',
+	  success:function(data) {
+		  dataAppointments = data;
+		  if (data.response == false) {
+			  $('#appointments-next').html(data.message);
+		  }
+		  else {
+			  var m = "";
+			  for (var i = 0 ; i < data.listSize; i++ ) {
+				  m += '<row><td onclick="selectAppointment('+i+',this)">'+data.appointments[i].date+'</td></tr>';
+			  }
+			  console.log('appointments:'+m);
+			  $('#appointments-next').html('<p style="color:red">'+m+'</p>');
+		  }
+	  },
+	  error:function(){
+		  
+	  }
+  });
+ }
+   
+ function arrayToJson(form, index) {
+	  var s='{';
+	 for(i=0; i < index; i++) {
+		 s += '\"'+form[i].name +'\":\"'+form[i].value+'\"';
+		 if (i != index-1) {
+		 s += ',';
+		 }
+	 }
+	 s +='}';
+	 return s;
+  }
+  
+  var csrfToken = $("meta[name='_csrf']").attr("content");
+  var csrfHeader = $("meta[name='_csrf_header']").attr("content");
+  /* Method to POST appointment request form
+  *
+  */
+    function ajaxPost() {
+	  var form = $('#appointment-request-form').serializeArray();
+	  var formJSON = arrayToJson(form,4);
+	  console.log(form);
+	  console.log(formJSON);
+	  var summary = form[0];
+	  var description = form[1];
+	console.log(typeof form[0].value +": "+ form[0].value);
+	console.log(typeof form[1].value +": "+ form[1].value);
+	console.log(typeof form[2].value +": "+ form[2].value);
+	console.log(typeof form[3].value +": "+ form[3].value); 
+	  $.ajax({
+		  headers: {
+			  'X-CSRF-TOKEN':csrfToken
+		  },
+		  type:'POST',
+		  contentType: 'application/json;charset=utf-8;',
+		  dataType: 'json',
+		  data:formJSON,
+		  url: '/ajax/patient/appointment-request/submit',
+		  success:function(data) {
+			  if (data.response == true) {
+				  $('#appointment-request-form').trigger('reset');
+			  }
+			  dataRequests = data;
+			  var m = "";
+			  for (var i = 0 ; i < data.listSize; i++ ) {
+				  m += '<row><td>'+data.requests[i].summary+'</td>'
+				  + '<td><button onclick="editRequest('+i+')\;">Edit</button>'
+				  +'<button onclick="deleteRequest('+i+')\;">Delete</button></td></row>';
+			  }
+			  $('#appointment-requests').html(m);
+			  retrieveNextAppointments();
+			  retrieveAppointmentRequests()
+		  },
+		  error:function(){
+			  $('#response-messages').html('<div class="alert alert-info" role="alert">Form could not be submitted. Please try again or contact our administration team for help.</div>');
+		  }
+	  });
+  } 
+
+  
+  function selectRequest(index,thisRow) {
+		selectedCurrentRequestId = dataRequests.requests[index].id;
+		console.log('selectedCurrentRequestId:'+selectedCurrentRequestId);
+		$('#appointment-requests tr').css('background-color', '');//reset table style
+		$(thisRow).css('background-color', '#86f9d6' );//'#f53713' rich red, tomatoy red #c54c35
+		
+		displaySelectedRequest(index,selectedCurrentRequestId);
+  }
+ 
+  function selectAppointment(index,thisRow) {
+		selectedCurrentAppointmentId = dataAppointments.appointments[index].id;
+		console.log('selectedCurrentAppointmentId:'+selectedCurrentAppointmentId);
+		$('#appointments-next tr').css('background-color', '');//reset table style
+		$(thisRow).css('background-color', '#86f9d6' );//'#f53713' rich red, tomatoy red #c54c35
+		
+		displaySelectedAppointment(index,selectedCurrentAppointmentId);
+  }
+  
+  
+  
+  /**
+  * Display seclected appointment's information.
+  */
+  function displaySelectedAppointment(index, id) {
+		var type = determinType(index,dataAppointments.appointments);
+		
+		var date = dataAppointments.appointments[index].date;
+		var summary = dataAppointments.appointments[index].summary;
+		var description = dataAppointments.appointments[index].description;
+	  $('#appointment-selected').html(
+			  '<tr><td>Appointment Type:'+type+'</td><tr>'
+			  +'<tr><td>Date:'+date+'</td></tr>'
+			  +'<tr><td>Summary:'+summary+'</td></tr>'
+			  +'<tr><td>Description:'+description+'</td></tr>'
+			  );
+  }
+  
+  
+  /**
+   * Display seclected appointment request's information.
+   */
+   function displaySelectedRequest(index, id) {
+	   var type = determinType(index,dataRequests.requests);
+		
+		var date = dataRequests.requests[index].date;
+		var summary = dataRequests.requests[index].summary;
+		var description = dataRequests.requests[index].description;
+	  $('#appointment-selected').html(
+			  '<tr><td>Appointment Type:'+type+'</td><tr>'
+			  +'<tr><td>Summary:'+summary+'</td></tr>'
+			  +'<tr><td>Description:'+description+'</td></tr>'
+			  );
+   }
+
+   /* <option value="1">Check Up</option>
+	<option value="2">Medical Question</option>
+	<option value="3">Medical Concern</option>
+	<option value="4">Urgent</option>
+	<option value="5">Travel Related</option>
+	<option value="6">Prescription Review</option>
+	<option value="7">Mental Health</option>
+	<option value="8">Other</option> */
+  function determinType(index,data) {
+	  	var type;
+		if (data[index].appointmentType == 1) {
+			type = 'Check Up';
+		}
+		else if (data[index].appointmentType == 2) {
+			type = 'Medical Question';	
+		}
+		else if (data[index].appointmentType == 3) {
+			type = 'Medical Concern';
+		}
+		else if (data[index].appointmentType == 4) {
+			type = 'Urgent';
+		}
+		else if (data[index].appointmentType == 5) {
+			type = 'Travel Related';
+		}
+		else if (data[index].appointmentType == 6) {
+			type = 'Prescription Review';	
+		}
+		else if (data[index].appointmentType == 7) {
+			type = 'Mental Health';
+		}
+		else if (data[index].appointmentType == 8) {
+			type = 'Other';
+		}
+		return type;
+  }
+
+  /*Method to delete outstanding (not yet accepted) AppointmentRequests */
+  function deleteRequest(requestId) {
+
+  }
+
+  /*Method to edit outstanding (not yet accepted) AppointmentRequests */
+  function editRequest(requestId) {
+
+  }
+
+  
+ 
+  
+ 
+  </script>
+</html>

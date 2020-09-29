@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!--FontAwesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Admin Home</title>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1>Admin Home</h1>
+    <h3></h3>
+     <div th:replace="admin/admin-nav"></div>
+  </div>
+
+  <div class="container text-center">
+    <h3></h3>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/register-users}"><button class="btn btn-secondary active">Add Users</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/search-users}"><button class="btn btn-primary">Search Users</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/admin/assistance}"><button class="btn btn-primary">Get Assistance</button></a>
+        </li>
+      </ul>
+
+</div>
+</body>
+<script>
+/* $('#username-error').hide(); */
+/* $('#username-error').html('<p class="alert alert-info">Username already exists. Choose another username.</p>'); */
+
+$(document).ready(function(){
+	$("#username").keyup(function(){
+		$('#username-error').hide();
+		$.ajax({
+			type:"GET",
+			url:"ajax/is-user/"+$("#username").val(),
+			success: function(result) {
+				 if ($.trim(result) == '{}') {
+					
+				} else {
+					console.log(result);
+					var str = JSON.stringify(result);
+					var data = JSON.parse(str);
+					var res = data.response;
+					console.log("Ready functions working.");
+					if (res == true) {
+						$('#username-error').show();
+						console.log("Username already exists. Choose another username.");
+					} else {
+						$('#username-error').hide();
+					}
+				 } 
+			}
+		});
+	});
+});
+</script>
+</html>
