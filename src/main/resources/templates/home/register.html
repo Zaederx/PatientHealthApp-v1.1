@@ -19,19 +19,8 @@
 <div class="jumbotron text-center">
       <h1>Welcome to the Patients Health Services</h1>
       <h3>We're here to help</h3>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center row">
-        <ul class="navbar-nav">
-          <li class="nav-item" >
-            <a class="nav-link" href="/home"><button class="btn btn-secondary active">Home</button></a>
-          </li>
-          <li class="nav-item" >
-            <a class="nav-link" href="/login"><button class="btn btn-primary">Login</button></a>
-          </li>
-          <li class="nav-item" >
-            <a class="nav-link" href="/home/register"><button class="btn btn-primary">Register</button></a>
-          </li>
-        </ul>
-      </nav>
+    <!--  Navigation Bar  -->
+    <div th:replace="home/home-nav"></div>
     </div>
     
     <!-- While ajax is great for registration - not using disuades other invdividuals from attempting to 

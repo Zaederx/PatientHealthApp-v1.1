@@ -40,35 +40,12 @@
   <body>
   <!-- Header/Banner -->
     <div class="jumbotron text-center">
-      <h1>Welcome Home</h1>
-      <h3>Accessible health care at you convenience</h3>
+        <h1>Welcome Home</h1>
+        <h3>Accessible health care at you convenience</h3>
 
-      <!-- Navigation Bar -->
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center row">
-        <ul class="navbar-nav">
-          <li class="nav-item" >
-            <a class="nav-link" th:href="@{/patient/home}"><button class="btn btn-secondary active">User Home</button></a>
-          </li>
-          <li class="nav-item" >
-            <a class="nav-link" th:href="@{/}"><button class="btn btn-primary">Doctor Details</button></a>
-          </li>
-           <li class="nav-item" >
-            <a class="nav-link" th:href="@{/}"><button class="btn btn-primary">Messages</button></a>
-          </li>
-           <li class="nav-item" >
-            <a class="nav-link" th:href="@{/}"><button class="btn btn-primary">Need Help?</button></a>
-          </li>
-           <li class="nav-item" >
-            <a class="nav-link" th:href="@{/logout}"><button class="btn btn-primary">Logout</button></a>
-          </li>
+        <!-- Navigation Bar -->
+        <div th:replace="patient/patient-nav"></div>
 
-          <!-- <li class="nav-item" >
-            <a class="nav-link" href="/home/register"><button class="btn btn-primary">Prescriptions</button></a>
-          </li>
-          -->
-        </ul>
-
-      </nav>
     </div>
 	<div class="container-fluid">
 	 	<p id="message"></p>
@@ -121,12 +98,12 @@
 
    <!-- CARD 2 - Personal Details -->
   <div class="card text-center">
-    <div class="card-header" id="headingOne">
+    <div class="card-header" id="headingTwo">
         <button class="username-error btn btn-link" onclick="setRegBtn('#reg-btn-patient')" data-toggle="collapse" data-target="#personalDetailsCollapse" aria-expanded="true" aria-controls="personalDetailsCollapse">
           Personal Details
         </button>
     </div>
-    <div id="personalDetailsCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="personalDetailsCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
 	      <div class="container d-flex flex-sm-column col-sm-8 justify-content-center">
 

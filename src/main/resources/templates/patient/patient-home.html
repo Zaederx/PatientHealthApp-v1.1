@@ -32,6 +32,7 @@
       
       <!-- Navigation Bar -->
       <div th:replace="patient/patient-nav"></div>
+
     </div>
     
     <!-- Content div -->
@@ -145,8 +146,8 @@
   </body>
   <script>
   
-  /* Set Prescirption name and Description */
-  var dataStore;//stores Prescription data
+  /* Set Prescription name and Description */
+  var dataPrescriptions;//stores Prescription data
   var dataAppointments;
   var dataMessages;
   var dataNotes;
@@ -155,8 +156,8 @@
   /*View Prescriptions*/
   function displayPrescription(i) {
 	  console.log("*********** displayPrescriptionModal called ***********");
-	  $('#presModal-subTitle').text(dataStore.prescriptions[i].medication.name);
-	  $('#presModal-body').text(dataStore.prescriptions[i].directions);
+	  $('#presModal-subTitle').text(dataPrescriptions.prescriptions[i].medication.name);
+	  $('#presModal-body').text(dataPrescriptions.prescriptions[i].directions);
   } 
   
   
@@ -186,7 +187,7 @@
 				  console.log("data count zero if statement");
 				  $('#appointments').html("<tr><td>No Active Prescriptions</td></tr>");
 			  } else {
-				  dataStore = data;
+				  dataPrescriptions = data;
 				  var m = "";
 				  for (var i = 0 ; i < data.listSize; i++ ) {
 					  m += '<tr><td>'+data.prescriptions[i].medication.name+'</td>'
@@ -218,10 +219,10 @@
 				  console.log("data count zero if statement");
 				  $('#prescriptions').html("<tr><td>No Active Prescriptions</td></tr>");
 			  } else {
-				  dataStore = data;
+				  dataPrescriptions = data;
 				  var m = "";
 				  for (var i = 0 ; i < data.listSize; i++ ) {
-					  m += '<tr><td>'+data.prescriptions[i].medication.name+'</td>'
+					  m += '<tr><td>'+dataPrescriptions.prescriptions[i].medication.name+'</td>'
 					  + '<td><button onclick="displayPrescription('+i+')\" class="btn btn-primary btn-space" data-toggle="modal" data-target="#presModal">View</button></td></tr>';
 				  }
 				  console.log("Show output:\n"+m);
