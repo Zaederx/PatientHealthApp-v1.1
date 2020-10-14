@@ -28,7 +28,7 @@ public class Patient extends User{
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "patients")
 	private List<Doctor> doctors;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<Prescription> prescriptions;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "patient")
