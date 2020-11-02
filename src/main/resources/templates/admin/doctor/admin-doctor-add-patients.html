@@ -35,7 +35,7 @@
 	   <input id="doctor-searchbar" class="form-control" type="text" placeholder="Search Doctors...">
 	   <!--  </div> -->
 	   <div class="table-flow">
-	    <table id="patient-details-table" class="table table-bordered table-striped">
+	    <table id="doctor-details-table" class="table table-bordered table-striped">
 	    			<thead>
 	    				<tr>
 		    				<th colspan="4">Doctors</th>
@@ -123,8 +123,8 @@
 <script>
 var dataDoctorSearchList;
 var dataPatientSearchList;
-var dataCurrentPatientList;
-var selectedCurrentPatientId;
+var dataCurrentPatientList;//list of doctor's current patients
+var selectedCurrentPatientId;//patient selected from doctor's list
 var selectedPatientId;//patient selected to be added to doct's list
 var selectedDoctorId;
 /*Fetch list of patients from backend*/
@@ -230,7 +230,7 @@ function selectPatient(index,thisRow) {
 
 /*Select patient to remove from doctor's list */
 function selectCurrentPatient(index,thisRow) {
-	selectedCurrentPatientId = dataPatientSearchList.patientList[index].id;
+	selectedCurrentPatientId = dataCurrentPatientList.patientList[index].id;
 	console.log('selectedCurrentPatientId:'+selectedCurrentPatientId);
 	$('#current-patient-table-body tr').css('background-color', '');//reset table style
 	$(thisRow).css('background-color', '#f05c35' );//'#f53713' rich red, tomatoy red #c54c35
