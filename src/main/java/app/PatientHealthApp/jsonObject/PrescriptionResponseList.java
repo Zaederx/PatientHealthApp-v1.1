@@ -29,7 +29,7 @@ public class PrescriptionResponseList extends Response {
 
 	public PrescriptionResponseList(List<Prescription> prescriptions) {
 		super();
-		setPrescriptions(prescriptions);
+		this.prescriptions = setPrescriptions(prescriptions);
 		listSize = null;
 		count();
 	}
@@ -63,13 +63,14 @@ public class PrescriptionResponseList extends Response {
 	/**
 	 * @param prescriptions the prescriptions to set
 	 */
-	public void setPrescriptions(List<Prescription> prescriptions) {
+	public List<PrescriptionResponse> setPrescriptions(List<Prescription> prescriptions) {
 		List<PrescriptionResponse> prescriptionResponses = new ArrayList<PrescriptionResponse>();
 		for (Prescription p : prescriptions) {
 			prescriptionResponses.add(new PrescriptionResponse());
 		}
-		this.prescriptions = prescriptionResponses;
+
 		countList();
+		return prescriptionResponses;
 	}
 	
 	
@@ -79,7 +80,9 @@ public class PrescriptionResponseList extends Response {
 		String medicationName;
 		
 		public PrescriptionResponse() {
-			
+			int id = 0;
+			String directions = "Default";
+			String medicationName = "Default";
 		}
 		
 		public PrescriptionResponse(Prescription p) {
