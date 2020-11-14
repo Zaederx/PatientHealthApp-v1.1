@@ -16,6 +16,7 @@ import javax.persistence.OneToOne;
 public class OAuthUser {
 
 	@Id
+	@Column(length = 250)
 	private String email;
 	@Column
 	private String credential;

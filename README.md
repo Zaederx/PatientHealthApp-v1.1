@@ -15,14 +15,22 @@ As this project was for university, it is online for the purpose of being on dis
 ## Background
 My project was to create a system that would allow patients with chronic illness to arrange the ordering of their repeat prescriptions online rather than in person as well as to book appointments online. The purpose of this is to save them time that could be put to better use.
 
+![Login] (./images/Login.png)
+![Google Sign In] (./images/GSignIn1.png)
+![Google Sign In] (./images/GSignIn2.png)
+![Google Sign In] (./images/GSignIn3.png)
+![Google Sign In] (./images/GSignIn4.png)
 
 
 ## Technologies
 - Java 
 - Gradle
-- Spring MVC Framework
+- Spring MVC Framework + Spring Security
 - Hibernate
 - MySQL
+
+    ### API'S
+    - Google Sign In
 
 ## Requirements to run the project
 You will need to have java 11 or higher installed and on your classpath in order to run the project.
@@ -62,4 +70,10 @@ The admin functionality is the most complete of the 3 system user types, though 
 ## Project Shortcommings
 The project does not have testing in place, mainly because I was focussed on trying to get as much of the idea realised as possible within time constraints. 
 
-Besides this, as mentioned, many aspect would still require some work to be complete and though the assignment/assessment is done, I would like to add some testing and finish off project as intented just for myself for the sake of completeness and finshing up what was started.
+Google Sign In successful retrieves the authentication token from the Google Sign In API but I was unable to complete the storage and retrival of that token from the database for Sign In. There's still a lot I have to learn on Google Sign In, but I was able to learn about how to set up the Google Developer console for applicaitons, as well as a bit about how Google Sign in works with tokens. Some of the difficult lay in knowing just how to integrate this with Spring's existing framework for authentication, but to meet my needs of the user already having been in the system as the system should only allow registration of users from the Admin, so that not just anyone could Sign Up. 
+
+This meant I had to try to make a slightly more custom solution for Google Sign In, which brought with it, it's own complications. This being besdies that fact that I wanted Google Sign in to be an option that coult be selected and unselected by users, as more an appendage to the regular account, which doesn't seem to be consideration in Spring Framework, which is shown to support third party sign up and sign in, but not for having an existing account on the platform and then to be signed in via third party authentication (or at least I was unable to find any guidance on this approach from any existing documentation of the time).
+ 
+Overall, as mentioned, many aspect would still require some work to be complete and though the assignment/assessment is done, I would like to add some testing and finish off project as intented just for myself for the sake of completeness and finshing up what was started.
+
+For now, however, it serves to show my understanding of Java, HTML, CSS, Javascipt, Gradle, Spring MVC and Hibernate at the time and in future maybe updated as I am able to in between working on other personal projects.
