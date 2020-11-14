@@ -26,3 +26,9 @@ hs_err_pid*
 
 #Gradle files
 .gradle
+
+#JAVA
+bin/
+.settings
+.project
+.classpath
