@@ -1,25 +1,26 @@
-# PatientHealthApp
+# Chronic Patient's Health App
 This something I made for a University Project but was version controlled on the University SVN, but I've added here for a personal copy. Many aspects of the idea were not completed, as it was a big undertaking for one person (it being the first large project that I have managed on my own). 
 Though the idea was not fully realised, everything done was sufficient to demonstrate skill in the related technologies and software development required to do well in the university module/class.
 
 As this project was for university, it is online for the purpose of being on display as part of a potfolio of my work, but cannot be forked or used for any purpose beyond to be observed as evidence of my work and epxerience.
 
 ## Tables of Contents
-* [Background] (#background)
-* [Technologies] (#technologies)
-* [Requirements to run the project]  (#requirements-to-run-the-project)
-* [Setup] (#setup)
-* [Running the project] (#running-the-project)
-* [Project Shortcommings] (#shortcommings)
+* [Background](#background)
+* [Images](#images)
+* [Technologies](#technologies)
+* [Requirements to run the project](#requirements-to-run-the-project)
+* [Setup](#setup)
+* [Running the project](#running-the-project)
+* [Project Shortcommings](#shortcommings)
 
 ## Background
 My project was to create a system that would allow patients with chronic illness to arrange the ordering of their repeat prescriptions online rather than in person as well as to book appointments online. The purpose of this is to save them time that could be put to better use.
 
-![Login] (./images/Login.png)
-![Google Sign In] (./images/GSignIn1.png)
-![Google Sign In] (./images/GSignIn2.png)
-![Google Sign In] (./images/GSignIn3.png)
-![Google Sign In] (./images/GSignIn4.png)
+## Images
+![Login](./images/Login.png)
+![Google Sign In](./images/GSignIn1.png)
+![Google Sign In](./images/GSignIn4.png)
+![Admin's Doctor-Patient dashboard](./images/image034.png)
 
 
 ## Technologies
@@ -60,12 +61,13 @@ Once the boot process is complete, you can then view the website from https://lo
 
 You can login to the application using these credentials:
 |username | password|
+|:---:|:---|
 |Admin1  | password|
 |Patient1 | password|
 |Doctor1 | password|
 There for each type their are 3 users (i.e. {usertype}{number} - e.g. Admin2). 
 
-The admin functionality is the most complete of the 3 system user types, though there remains still a lot of work to 
+The admin functionality is the most complete of the 3 system user types, though there still remains a lot left undone.
 
 ## Project Shortcommings
 The project does not have testing in place, mainly because I was focussed on trying to get as much of the idea realised as possible within time constraints. 
