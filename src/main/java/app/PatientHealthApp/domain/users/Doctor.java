@@ -40,6 +40,7 @@ public class Doctor extends User {
 	
 	@Column(unique = true)
 	String gmc;
+
 	@OneToMany
 	private List<Appointment> appointments;
 
@@ -80,6 +81,21 @@ public class Doctor extends User {
 	 */
 	public void setSpecialisation(String specialty) {
 		this.specialisation = specialty;
+	}
+
+	/**
+	 * @return the gmc
+	 */
+	public String getGMC() {
+		return gmc;
+	}
+
+	/**
+	 * 
+	 * @param gmc the doctor/'s gmc code
+	 */
+	public void setGMC(String gmc){
+		this.gmc = gmc;
 	}
 	
 }
