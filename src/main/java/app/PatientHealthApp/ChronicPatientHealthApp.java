@@ -21,7 +21,6 @@ import app.PatientHealthApp.domain.users.Patient;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 
 
-
 /**
  * 
  * Class used to run the app.
@@ -46,7 +45,7 @@ public class ChronicPatientHealthApp implements CommandLineRunner{
 	@Override
 	@Transactional
 	public void run (String ... strings) throws Exception {
-//		testUsers();
+		testUsers();
 	}
 
 	
@@ -60,6 +59,7 @@ public class ChronicPatientHealthApp implements CommandLineRunner{
 		admin1.setUsername("ADMIN1");
 		admin1.setPassword("password");
 		admin1.setEmail("admin1@email.com");
+		
 //		admin.setId(5);
 		repo.getAdminRepo().save(admin1);
 
@@ -84,15 +84,17 @@ public class ChronicPatientHealthApp implements CommandLineRunner{
 		Doctor doctor1 = new Doctor();
 		doctor1.setName("D1");
 		doctor1.setPassword("password");
-		doctor1.setEmail("doctor@email.com");
+		doctor1.setEmail("doctor1@email.com");
 		doctor1.setUsername("DOCTOR1");
+		doctor1.setGMC("GMC1");
 		repo.getDoctorRepo().save(doctor1);
 
 		Doctor doctor2 = new Doctor();
 		doctor2.setName("D2");
 		doctor2.setPassword("password");
-		doctor2.setEmail("doctor@email.com");
+		doctor2.setEmail("doctor2@email.com");
 		doctor2.setUsername("DOCTOR2");
+		doctor2.setGMC("GMC2");
 		repo.getDoctorRepo().save(doctor2);
 
 		Doctor doctor3 = new Doctor();
@@ -100,6 +102,7 @@ public class ChronicPatientHealthApp implements CommandLineRunner{
 		doctor3.setPassword("password");
 		doctor3.setEmail("doctor3@email.com");
 		doctor3.setUsername("DOCTOR3");
+		doctor3.setGMC("GMC3");
 		repo.getDoctorRepo().save(doctor3);
 
 
