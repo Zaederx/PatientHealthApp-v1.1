@@ -41,10 +41,8 @@ public class User {
 	protected String name;
 	@Column(unique = true, nullable = false)
 	protected String username;
-	
 	@Column(unique = true, nullable = false)
 	protected String email;
-	
 	@JsonIgnore//to ensure password isn't sent in json responses
 	@Column(nullable = false)
 	protected String password;

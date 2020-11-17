@@ -41,6 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				.authorizeRequests()
 				.antMatchers("/","/home","/validate","/resources/**", "/img/**.jpg","/oauthentication/**", "/temp/signup/**","/oauth2/patient").permitAll()
+				.antMatchers("/h2-console/**").permitAll()//for viewing h2 console - would remove in real app senario
 				.antMatchers("/doctor/**","ajax/doctor/**","/calendar/doctor/**").hasRole("DOCTOR")
 				.antMatchers("/patient/**","/ajax/patient/**","/appointment/submit","/calendar/patient/**").hasRole("PATIENT")
 				.antMatchers("/admin/**","/ajax/**").hasRole("ADMIN")
@@ -74,6 +75,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and().exceptionHandling().accessDeniedPage("/login-error") 
 //				.and().csrf().disable()
 				// same as error page so hackers can' tell whether there is a resource page at that request 
+				.and().csrf().ignoringAntMatchers("/h2-console/**")
+				.and().headers().frameOptions().disable()//prevents h2-console frame problems
 		;
 	}
 	

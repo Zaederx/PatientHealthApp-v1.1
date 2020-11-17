@@ -45,7 +45,7 @@ public class ChronicPatientHealthApp implements CommandLineRunner{
 	@Override
 	@Transactional
 	public void run (String ... strings) throws Exception {
-		testUsers();
+		// testUsers();
 	}
 
 	
@@ -200,7 +200,7 @@ public class ChronicPatientHealthApp implements CommandLineRunner{
 
 		Patient p2 = new Patient();
 		p2.setName("P2");
-		p2.setEmail("patien2@email.com");
+		p2.setEmail("patient2@email.com");
 		p2.setPassword("password");
 		p2.setUsername("PATIENT2");
 		p2.setPrescriptions(prescriptions2);
