@@ -26,8 +26,10 @@ repositories {
 }
 
 dependencies {
+	
+	compile group: 'com.h2database', name: 'h2', version: '1.4.200'
 //	testCompile "junit:junit:4.11"
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' //causes conflict - creates duplicate Beans
+	// implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' //causes conflict - creates duplicate Beans
 	/*Google Cloud Storage Library - needed for implicit authentication strategy - for goole service accounts
 	 https://cloud.google.com/docs/authentication/getting-started */
 	compile 'com.google.cloud:google-cloud-storage:1.108.0'
@@ -71,7 +73,7 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	testImplementation 'org.springframework.security:spring-security-test'
+	// testImplementation 'org.springframework.security:spring-security-test'
 }
 
 jacocoTestReport {
