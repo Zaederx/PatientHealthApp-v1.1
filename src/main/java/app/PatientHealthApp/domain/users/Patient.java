@@ -11,9 +11,9 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import app.PatientHealthApp.domain.objects.Appointment;
-import app.PatientHealthApp.domain.objects.AppointmentRequest;
-import app.PatientHealthApp.domain.objects.Prescription;
+import app.PatientHealthApp.domain.objects.surgery.Appointment;
+import app.PatientHealthApp.domain.objects.surgery.AppointmentRequest;
+import app.PatientHealthApp.domain.objects.surgery.Prescription;
 import app.PatientHealthApp.formObjects.PatientRegForm;
 
 /**

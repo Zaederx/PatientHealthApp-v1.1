@@ -1,4 +1,4 @@
-package app.PatientHealthApp;
+package app.PatientHealthApp.domain.objects.doctor;
 
 import java.util.HashMap;
 

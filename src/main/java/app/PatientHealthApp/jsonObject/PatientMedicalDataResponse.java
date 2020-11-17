@@ -6,7 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import app.PatientHealthApp.domain.objects.Prescription;
+import app.PatientHealthApp.domain.objects.surgery.Prescription;
 
 @JsonInclude(Include.NON_NULL)
 public class PatientMedicalDataResponse extends Response {

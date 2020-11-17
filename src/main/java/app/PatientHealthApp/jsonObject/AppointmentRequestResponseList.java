@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import app.PatientHealthApp.domain.objects.AppointmentRequest;
+import app.PatientHealthApp.domain.objects.surgery.AppointmentRequest;
 
 /**
  * A class used to to return AppointmentResponses to user.

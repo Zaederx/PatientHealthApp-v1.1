@@ -1,4 +1,4 @@
-package app.PatientHealthApp;
+package app.PatientHealthApp.domain.objects.admin;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

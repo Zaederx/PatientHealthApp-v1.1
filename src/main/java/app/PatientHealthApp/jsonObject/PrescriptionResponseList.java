@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import app.PatientHealthApp.domain.objects.Prescription;
+import app.PatientHealthApp.domain.objects.surgery.Prescription;
 
 /**
  * A Class used to return Prescriptions to user.

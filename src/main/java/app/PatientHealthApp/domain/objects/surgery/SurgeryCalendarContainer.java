@@ -1,4 +1,4 @@
-package app.PatientHealthApp;
+package app.PatientHealthApp.domain.objects.surgery;
 
 import java.beans.JavaBean;
 import java.util.ArrayList;

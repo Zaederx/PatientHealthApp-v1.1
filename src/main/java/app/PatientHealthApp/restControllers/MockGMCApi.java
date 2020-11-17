@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.PatientHealthApp.domain.objects.GMC;
+import app.PatientHealthApp.domain.objects.doctor.GMC;
 import app.PatientHealthApp.jsonObject.Response;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 

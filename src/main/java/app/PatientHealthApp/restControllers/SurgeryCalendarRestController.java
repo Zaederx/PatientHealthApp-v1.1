@@ -24,9 +24,9 @@ import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.EventReminder;
 import com.google.api.services.calendar.model.Events;
 
-import app.PatientHealthApp.AdminDashboard;
-import app.PatientHealthApp.SurgeryGoogleCalendarAPI;
-import app.PatientHealthApp.domain.objects.Appointment;
+import app.PatientHealthApp.domain.objects.admin.AdminDashboard;
+import app.PatientHealthApp.domain.objects.surgery.SurgeryGoogleCalendarAPI;
+import app.PatientHealthApp.domain.objects.surgery.Appointment;
 import app.PatientHealthApp.domain.users.Patient;
 import app.PatientHealthApp.domain.users.User;
 import app.PatientHealthApp.jsonObject.AppointmentListResponse;

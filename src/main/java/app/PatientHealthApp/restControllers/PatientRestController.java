@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.PatientHealthApp.domain.objects.AppointmentRequest;
+import app.PatientHealthApp.domain.objects.surgery.AppointmentRequest;
 import app.PatientHealthApp.domain.users.Patient;
 import app.PatientHealthApp.formObjects.AppointmentRequestForm;
 import app.PatientHealthApp.jsonObject.AppointmentRequestResponseList;

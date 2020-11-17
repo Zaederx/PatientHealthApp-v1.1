@@ -4,7 +4,7 @@ package app.PatientHealthApp.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import app.PatientHealthApp.domain.objects.Medication;
+import app.PatientHealthApp.domain.objects.surgery.Medication;
 
 /**
  * Repository interface used to retrieve Medication Objects.

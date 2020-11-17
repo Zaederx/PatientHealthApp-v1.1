@@ -2,7 +2,7 @@ package app.PatientHealthApp.jsonObject;
 
 import java.util.List;
 
-import app.PatientHealthApp.domain.objects.Appointment;
+import app.PatientHealthApp.domain.objects.surgery.Appointment;
 
 public class AppointmentListResponse extends Response{
 

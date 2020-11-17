@@ -11,8 +11,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import app.PatientHealthApp.domain.objects.Medication;
-import app.PatientHealthApp.domain.objects.Prescription;
+import app.PatientHealthApp.domain.objects.admin.AdminDashboard;
+import app.PatientHealthApp.domain.objects.surgery.Medication;
+import app.PatientHealthApp.domain.objects.surgery.Prescription;
+import app.PatientHealthApp.domain.objects.surgery.SurgeryGoogleCalendarAPI;
 import app.PatientHealthApp.domain.users.Admin;
 import app.PatientHealthApp.domain.users.Doctor;
 import app.PatientHealthApp.domain.users.Patient;

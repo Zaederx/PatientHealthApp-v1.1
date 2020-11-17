@@ -18,7 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import app.PatientHealthApp.domain.objects.Message;
+import app.PatientHealthApp.domain.objects.surgery.Message;
 
 /**
  * Class to represent users.

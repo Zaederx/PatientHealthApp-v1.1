@@ -1,4 +1,4 @@
-package app.PatientHealthApp.domain.objects;
+package app.PatientHealthApp.domain.objects.surgery;
 
 import java.util.Date;
 

@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.UniqueElements;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import app.PatientHealthApp.domain.objects.Appointment;
+import app.PatientHealthApp.domain.objects.surgery.Appointment;
 import app.PatientHealthApp.formObjects.DoctorRegForm;
 /**
  * Doctor {@link Entity} class that defines the doctor table.
