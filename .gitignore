@@ -31,3 +31,6 @@ bin/
 .settings
 .project
 .classpath
+
+#H2 Database
+data/db.trace.db
