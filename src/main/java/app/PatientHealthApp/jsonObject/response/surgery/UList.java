@@ -1,4 +1,4 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.surgery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import app.PatientHealthApp.domain.users.User;
+import app.PatientHealthApp.jsonObject.response.Response;
 
 
 /**
- * An 
+ * An Object to represent a List of Users
  * @author Zachary Ishmael
  *
  */

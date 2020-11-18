@@ -1,4 +1,4 @@
-package app.PatientHealthApp.restControllers;
+package app.PatientHealthApp.restControllers.surgery;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -29,7 +29,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 
 import app.PatientHealthApp.domain.users.OAuthUser;
 import app.PatientHealthApp.domain.users.Patient;
-import app.PatientHealthApp.jsonObject.Response;
+import app.PatientHealthApp.jsonObject.response.Response;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 
 @RestController

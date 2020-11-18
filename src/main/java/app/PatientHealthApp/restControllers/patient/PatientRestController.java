@@ -1,4 +1,4 @@
-package app.PatientHealthApp.restControllers;
+package app.PatientHealthApp.restControllers.patient;
 
 
 
@@ -24,10 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 import app.PatientHealthApp.domain.objects.surgery.AppointmentRequest;
 import app.PatientHealthApp.domain.users.Patient;
 import app.PatientHealthApp.formObjects.AppointmentRequestForm;
-import app.PatientHealthApp.jsonObject.AppointmentRequestResponseList;
-import app.PatientHealthApp.jsonObject.GoogleEventResponse;
-import app.PatientHealthApp.jsonObject.PrescriptionResponseList;
-import app.PatientHealthApp.jsonObject.Response;
+import app.PatientHealthApp.jsonObject.response.Response;
+import app.PatientHealthApp.jsonObject.response.surgery.AppointmentRequestResponseList;
+import app.PatientHealthApp.jsonObject.response.surgery.PrescriptionResponseList;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 
 @RestController

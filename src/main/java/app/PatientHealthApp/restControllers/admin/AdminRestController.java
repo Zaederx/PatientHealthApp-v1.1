@@ -1,4 +1,4 @@
-package app.PatientHealthApp.restControllers;
+package app.PatientHealthApp.restControllers.admin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import app.PatientHealthApp.domain.users.Doctor;
 import app.PatientHealthApp.domain.users.Patient;
 import app.PatientHealthApp.domain.users.User;
-import app.PatientHealthApp.jsonObject.DoctorListResponse;
-import app.PatientHealthApp.jsonObject.PatientListResponse;
-import app.PatientHealthApp.jsonObject.Response;
-import app.PatientHealthApp.jsonObject.UList;
+import app.PatientHealthApp.jsonObject.response.Response;
+import app.PatientHealthApp.jsonObject.response.doctor.DoctorListResponse;
+import app.PatientHealthApp.jsonObject.response.patient.PatientListResponse;
+import app.PatientHealthApp.jsonObject.response.surgery.UList;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 
 @RestController

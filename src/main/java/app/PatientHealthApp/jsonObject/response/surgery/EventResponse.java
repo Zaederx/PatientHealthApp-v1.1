@@ -1,4 +1,4 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.surgery;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;

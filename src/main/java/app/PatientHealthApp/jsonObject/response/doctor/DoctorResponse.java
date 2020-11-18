@@ -1,4 +1,4 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.doctor;
 
 
 
@@ -9,6 +9,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import app.PatientHealthApp.domain.users.Doctor;
 import app.PatientHealthApp.domain.users.Patient;
+import app.PatientHealthApp.jsonObject.response.patient.PatientResponse;
+import app.PatientHealthApp.jsonObject.response.surgery.UserResponse;
 
 /**
  * A class to help respresent Doctors in json.

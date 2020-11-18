@@ -1,4 +1,4 @@
-package app.PatientHealthApp.restControllers;
+package app.PatientHealthApp.restControllers.surgery;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.PatientHealthApp.domain.users.Patient;
 import app.PatientHealthApp.domain.users.User;
-import app.PatientHealthApp.jsonObject.PasswordValidationResponse;
-import app.PatientHealthApp.jsonObject.Response;
-import app.PatientHealthApp.jsonObject.UList;
-import app.PatientHealthApp.jsonObject.UserResponse;
+import app.PatientHealthApp.jsonObject.response.Response;
+import app.PatientHealthApp.jsonObject.response.surgery.PasswordValidationResponse;
+import app.PatientHealthApp.jsonObject.response.surgery.UList;
+import app.PatientHealthApp.jsonObject.response.surgery.UserResponse;
 import app.PatientHealthApp.repository.AdminRepository;
 import app.PatientHealthApp.repository.DoctorRepository;
 import app.PatientHealthApp.repository.PatientRepository;

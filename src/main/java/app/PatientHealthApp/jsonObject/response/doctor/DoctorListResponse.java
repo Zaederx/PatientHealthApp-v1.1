@@ -1,4 +1,4 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.doctor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import app.PatientHealthApp.domain.users.Doctor;
+import app.PatientHealthApp.jsonObject.response.Response;
 
 /**
  * Class used as a JSON {@link Response} object.

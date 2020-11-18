@@ -1,8 +1,9 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.surgery;
 
 import java.util.List;
 
 import app.PatientHealthApp.domain.objects.surgery.Appointment;
+import app.PatientHealthApp.jsonObject.response.Response;
 
 public class AppointmentListResponse extends Response{
 

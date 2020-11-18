@@ -1,9 +1,10 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.surgery;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import app.PatientHealthApp.domain.users.User;
+import app.PatientHealthApp.jsonObject.response.Response;
 
 /**
  * Json Response Object for returning users.

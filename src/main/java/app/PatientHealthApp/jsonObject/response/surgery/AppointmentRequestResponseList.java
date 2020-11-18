@@ -1,4 +1,4 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.surgery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import app.PatientHealthApp.domain.objects.surgery.AppointmentRequest;
+import app.PatientHealthApp.jsonObject.response.Response;
 
 /**
  * A class used to to return AppointmentResponses to user.

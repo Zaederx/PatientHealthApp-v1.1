@@ -51,7 +51,7 @@ import com.google.api.services.calendar.model.Events;
 
 import app.PatientHealthApp.domain.users.OAuthUser;
 import app.PatientHealthApp.domain.users.User;
-import app.PatientHealthApp.jsonObject.Response;
+import app.PatientHealthApp.jsonObject.response.Response;
 import app.PatientHealthApp.repository.OAuthUserRepository;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 

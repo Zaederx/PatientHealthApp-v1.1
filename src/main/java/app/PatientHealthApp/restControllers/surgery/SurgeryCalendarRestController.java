@@ -1,4 +1,4 @@
-package app.PatientHealthApp.restControllers;
+package app.PatientHealthApp.restControllers.surgery;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -29,10 +29,9 @@ import app.PatientHealthApp.domain.objects.surgery.SurgeryGoogleCalendarAPI;
 import app.PatientHealthApp.domain.objects.surgery.Appointment;
 import app.PatientHealthApp.domain.users.Patient;
 import app.PatientHealthApp.domain.users.User;
-import app.PatientHealthApp.jsonObject.AppointmentListResponse;
-import app.PatientHealthApp.jsonObject.EventResponse;
-import app.PatientHealthApp.jsonObject.GoogleEventResponse;
-import app.PatientHealthApp.jsonObject.Response;
+import app.PatientHealthApp.jsonObject.response.Response;
+import app.PatientHealthApp.jsonObject.response.surgery.AppointmentListResponse;
+import app.PatientHealthApp.jsonObject.response.surgery.GoogleEventResponse;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 
 

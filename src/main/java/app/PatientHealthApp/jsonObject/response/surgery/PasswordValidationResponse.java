@@ -1,7 +1,9 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.surgery;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import app.PatientHealthApp.jsonObject.response.Response;
 
 @JsonInclude(Include.NON_NULL)//only non null included
 public class PasswordValidationResponse extends Response{

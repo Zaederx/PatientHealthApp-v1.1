@@ -1,4 +1,4 @@
-package app.PatientHealthApp.restControllers;
+package app.PatientHealthApp.restControllers.surgery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.PatientHealthApp.domain.objects.doctor.GMC;
-import app.PatientHealthApp.jsonObject.Response;
+import app.PatientHealthApp.jsonObject.response.Response;
 import app.PatientHealthApp.services.UserServiceDetailsImpl;
 
 /**

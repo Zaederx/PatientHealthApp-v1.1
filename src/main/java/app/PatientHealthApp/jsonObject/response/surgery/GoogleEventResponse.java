@@ -1,4 +1,4 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.surgery;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.google.api.services.calendar.model.Event;
+
+import app.PatientHealthApp.jsonObject.response.Response;
 
 @JsonInclude(Include.NON_NULL)
 public class GoogleEventResponse extends Response {

@@ -1,4 +1,4 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.patient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import app.PatientHealthApp.domain.objects.surgery.Prescription;
+import app.PatientHealthApp.jsonObject.response.Response;
 
 @JsonInclude(Include.NON_NULL)
 public class PatientMedicalDataResponse extends Response {

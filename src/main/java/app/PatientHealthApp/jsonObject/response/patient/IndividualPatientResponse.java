@@ -1,9 +1,10 @@
-package app.PatientHealthApp.jsonObject;
+package app.PatientHealthApp.jsonObject.response.patient;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import app.PatientHealthApp.domain.users.Patient;
+import app.PatientHealthApp.jsonObject.response.Response;
 
 @JsonInclude(Include.NON_NULL)
 public class IndividualPatientResponse extends Response{
