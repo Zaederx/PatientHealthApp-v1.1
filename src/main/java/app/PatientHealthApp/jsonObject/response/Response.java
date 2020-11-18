@@ -19,6 +19,12 @@ public class Response {
 	/*If Form has Errors 
 	 * - response set to true*/
 	private boolean response;
+
+	/**
+	 * For sending messages to console
+	 * -though these messages may also be used when (appropriate)
+	 * for alerting the users on the front end
+	 */
 	private String message;
 
 	private List<String> messages;
