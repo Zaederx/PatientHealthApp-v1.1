@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import app.PatientHealthApp.domain.users.Doctor;
 import app.PatientHealthApp.domain.users.Patient;
@@ -20,6 +22,7 @@ import app.PatientHealthApp.formObjects.AppointmentRequestForm;
  * @author Zachary Ishmael
  *
  */
+@JsonInclude(Include.NON_NULL)
 @Entity(name="appointment_request")
 public class AppointmentRequest {
 	
@@ -92,6 +95,7 @@ public class AppointmentRequest {
 	@Column
 	private int priority;
 	
+	private Boolean answered;
 	
 	public AppointmentRequest(Patient patient, String description, String summary, int appointmentType, Boolean session) {
 		this.patient = patient;
@@ -302,6 +306,18 @@ public class AppointmentRequest {
 		this.priority = priority;
 	}
 
-	
+	/**
+	 * @return answer - whether the requests has been answered or not
+	 */
+	public Boolean getAnswered() {
+		return answered;
+	}
+
+	/**
+	 * @param answered - whether the request has been answered or not
+	 */
+	public void setAnswered(Boolean answered) {
+		this.answered = answered;
+	}
 	
 }
