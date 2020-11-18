@@ -80,10 +80,15 @@ You can login to the application using these credentials:
 To access the H2 console to view the database go to https://localhost:8090/h2-console/ and enter:
 
 Saved Settings: Generic H2 (Embedded)
+
 Settings Name: Generic H2 (Embedded)
+
 Driver Class: org.h2.Driver
+
 JDBC URL: jdbc:h2:file:./data/db
+
 User Name: admin
+
 Password: admin
 
 as shown in the image below:
