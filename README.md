@@ -1,9 +1,9 @@
-# Chronic Patient's Health App
-This something I made for a University Project but was version controlled on the University SVN, but I've added here for a personal copy. Many aspects of the idea were not completed, as it was a big undertaking for one person (it being the first large project that I have managed on my own). 
+# Chronic Patient's Health WebApp
+This something I made for a University Project but was version controlled on the University SVN, but I've added here for a personal copy. 
 
-Though the idea was not fully realised due to complications in working with Google API's [see problems](#project-shortcomings), though everything done was sufficient to demonstrate skill in the related technologies and software development required to do well in the university module/class.
+Many aspects of the idea were not completed, as it was a big undertaking for one person (it being the first project of this size that I have managed on my own) and due to complications in working with Google API's [see problems](#project-shortcomings). Everything done was sufficient to demonstrate the required level of skill in use of the related technologies and software development to do well in the university module/class.
 
-As this project was for university, it is online for the purpose of being on display as part of a portfolio of my work, but cannot be forked or used for any purpose beyond to be observed as evidence of my work and epxerience.
+As this project was for university, it is online for the purpose of being on display as part of a portfolio of my work, but cannot be forked or used for any purpose beyond to be observed as evidence of my work and experience.
 
 ## Tables of Contents
 * [Background](#background)
@@ -38,13 +38,18 @@ My project was to create a system that would allow patients with chronic illness
 ## Requirements to run the project
 You will need to have java 11 or higher installed and on your classpath in order to run the project.
 
-Optionally you can use a local installation of gradle to build and run this, but there
+Optionally you can use a local installation of gradle to build and run this, but there is a gradle wrapper (gradlew) which can be used instead.
 
 
 ## Setup
-In order to run the project, you will need to configure the MySQL database settings. You can configure the database to be either a local or remote MySQL database. To do this you will need to fill in the application.properties file with your database configuration.
 
-For example you can download MySQL Server and create and local MySQL database instance, or (if you are comfortable using ssh tunnelling and have a raspberry pi) you can download MariaDB server to the pi, run a server instance and then using ssh tunnelling can run the application with the remote settings.
+### Now
+Once downloaded no further setup is required.
+
+### Originally
+Originalled, in order to run the project, you needed to configure it (in the application.properties) to work with a MySQL database instance, which could be either a local instance or remote instance using ssh tunnelling.
+
+In my case it was configured to run with a University MySQL server instance, sometimes a local MySQL database instance, and later on a raspberry pi instance of MariaDB.
 
 ## Running the Project
 From the terminal, cd the project directory. Once inside the directory: 
@@ -120,4 +125,4 @@ For now, however, it serves to show my understanding of Java, HTML, CSS, Javasci
 
 ## Modifications
 
-I have since gone back and have worked on completing aspects of the project not related to Google Cloud/Console [see here for explaination](#main).
+I have since gone back and have worked on completing aspects of the project not related to Google Cloud Console [see here for explaination](#main).
