@@ -1,7 +1,7 @@
 # Chronic Patient's Health WebApp
 This something I made for a University Project but was version controlled on the University SVN, but I've added here for a personal copy. 
 
-Many aspects of the idea were not completed, as it was a big undertaking for one person (it being the first project of this size that I have managed on my own) and due to complications in working with Google API's [see problems](#project-shortcomings). Everything done was sufficient to demonstrate the required level of skill in use of the related technologies and software development to do well in the university module/class.
+Many aspects of the idea were not completed, as it was a big undertaking for one person (it being the first project of this size that I have managed on my own) and due to complications in working with Google API's [see problems](#project-shortcomings). Everything done mainly in the Admin side of the project was sufficient to demonstrate the required level of skill and capability in use of the related technologies and software development to do well in the university module/class [see project supervisor's comments in linkedin recommendation](https://www.linkedin.com/in/z-ishmael/).
 
 As this project was for university, it is online for the purpose of being on display as part of a portfolio of my work, but cannot be forked or used for any purpose beyond to be observed as evidence of my work and experience.
 
@@ -26,14 +26,56 @@ My project was to create a system that would allow patients with chronic illness
 
 
 ## Technologies
-- Java 
-- Gradle
-- Spring MVC Framework + Spring Security
-- Hibernate
-- MySQL
+- [Java](#java)
+- [Gradle](#gradle)
+- [Spring Framework](#spring-framework)
+- [Hibernate](#hibernate)
+- [MySQL Server](#mysql-server) (Originally - now uses H2Database for portability)
+- [Thymeleaf Templating Engine](#thymeleaf-templating-engine)
+- [Javascript](#javascript)
+- [jQuery](#jquery)
+- [HTML](#html)
+- [CSS](#css)
+- [Bootstrap](#bootstrap)
+    ### External API's and Services
 
-    ### API'S
-    - Google Sign In
+    - Google Sign
+    - Google Calendar
+    - Google Console
+    ### Explanation of Each Technologies Role
+
+    #### Java
+    Is used to write/create the server side of the application. This include main data structures for manipulating database information as POJO objects on ther server side.
+
+    #### Gradle
+    A build tool technology (i.e. like Maven) used to provide easily portable/shareable dependency management.
+
+    #### Spring Framework
+    Spring is a framework for developing Java Applications. In particular I used the Spring MVC, Spring Security by way of Spring Boot in order to build the backend in a secure MVC type architecture.
+
+    #### Hibernate
+    Hibernate is the implementation of JPA (Java Persistence API) that is being used to model the database and carryout SQL queries directly through [POJO's]() instead of through MySQL statements.
+
+    #### MySQL Server
+    The Database used to persist application information.
+
+    #### Thymleaf Templating Engine
+    An alternative to using JSP pages, Thymeleaf allows you to create regular HTML pages that can be rendered by the browser, but with some additional syntax that allows Thymleaf to insert java objects and values from the server side into the HTML DOM elements. This is great for design without runnings the entire server instance.
+
+    #### Javascript
+    It's the main language used on the client side for crreating dynamic and interactive content.
+
+    #### jQuery
+    A javascript library good for working with AJAX among many other useful things [see website](https://jquery.com/).
+    
+    #### HTML
+    The mark up langauge of the web.
+
+    #### CSS
+    The styling language of the web.
+
+    #### Bootstrap
+    HTML,CSS and Javascript library for creating dynamic web content.[see website](https://getbootstrap.com/)
 
 ## Requirements to run the project
 You will need to have java 11 or higher installed and on your classpath in order to run the project.
@@ -124,5 +166,4 @@ Overall, as mentioned, many aspect would still require some work to be complete 
 For now, however, it serves to show my understanding of Java, HTML, CSS, Javascipt, Gradle, Spring MVC and Hibernate at the time and in future maybe updated as I am able to in between working on other personal projects.
 
 ## Modifications
-
-I have since gone back and have worked on completing aspects of the project not related to Google Cloud Console [see here for explaination](#main).
+In future once done: I have since gone back and have worked on completing aspects of the project not related to Google Cloud Console [see here for explaination](#main).
