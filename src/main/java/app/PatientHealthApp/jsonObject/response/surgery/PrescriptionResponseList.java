@@ -67,7 +67,7 @@ public class PrescriptionResponseList extends Response {
 	public List<PrescriptionResponse> setPrescriptions(List<Prescription> prescriptions) {
 		List<PrescriptionResponse> prescriptionResponses = new ArrayList<PrescriptionResponse>();
 		for (Prescription p : prescriptions) {
-			prescriptionResponses.add(new PrescriptionResponse());
+			prescriptionResponses.add(new PrescriptionResponse(p));
 		}
 
 		countList();
@@ -81,9 +81,9 @@ public class PrescriptionResponseList extends Response {
 		String medicationName;
 		
 		public PrescriptionResponse() {
-			int id = 0;
-			String directions = "Default";
-			String medicationName = "Default";
+			id = 0;
+			directions = "Default";
+			medicationName = "Default";
 		}
 		
 		public PrescriptionResponse(Prescription p) {
