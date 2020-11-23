@@ -76,7 +76,7 @@ My project was to create a system that would allow patients with chronic illness
     The styling language of the web.
 
     #### Bootstrap
-    HTML,CSS and Javascript library for creating dynamic web content.[see website](https://getbootstrap.com/)
+    HTML,CSS and Javascript library for creating dynamic web content[see website](https://getbootstrap.com/).
 
 ## Requirements to run the project
 You will need to have java 11 or higher installed and on your classpath in order to run the project.
