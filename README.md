@@ -14,6 +14,7 @@ As this project was for university, it is online for the purpose of being on dis
 * [Running the project](#running-the-project)
 * [Project Shortcomings](#shortcomings)
 * [Modifications](#modifications)
+* [Trello Board](https://trello.com/b/e8hwRTpR/patientapp)
 
 ## Background
 My project was to create a system that would allow patients with chronic illness to arrange the ordering of their repeat prescriptions online rather than in person as well as to book appointments online. The purpose of this is to save them time that could be put to better use.
@@ -51,7 +52,7 @@ My project was to create a system that would allow patients with chronic illness
     A build tool technology (i.e. like Maven) used to provide easily portable/shareable dependency management.
 
     #### Spring Framework
-    Spring is a framework for developing Java Applications. In particular I used the Spring MVC, Spring Security by way of Spring Boot in order to build the backend in a secure MVC type architecture.
+    Spring is a framework for developing Java Applications. In particular I used the Spring MVC, Spring Security by way of Spring Boot in order to build the backend in a secure MVC type architecture. Spring Framework also provides a good means of creating and working with REST in order to create APIs for any AJAX related calls. Spring's Web depndency also provides and embedded Apache Tomcat Server for running the project.
 
     #### Hibernate
     Hibernate is the implementation of JPA (Java Persistence API) that is being used to model the database and carryout SQL queries directly through [POJO's]() instead of through MySQL statements.
@@ -86,7 +87,7 @@ Optionally you can use a local installation of gradle to build and run this, but
 ## Setup
 
 ### Now
-Once downloaded no further setup is required.
+Once downloaded no further setup is required. (though you should wasit for a moment after running before interacting with the application - to make sure server has run all it's processes.)
 
 ### Originally
 Originalled, in order to run the project, you needed to configure it (in the application.properties) to work with a MySQL database instance, which could be either a local instance or remote instance using ssh tunnelling.
@@ -108,20 +109,20 @@ On Windows
 
 Once the boot process is complete, you can then view the website from https://localhost:8090/ (if you are using default configurations). 
 
-There for each type their are 3 users (i.e. {usertype}{number} - e.g. Admin2).
+<!-- There for each type their are 3 users (i.e. {usertype}{number} - e.g. Admin2). -->
 
 You can login to the application using these credentials:
 |username | password|
 |:---:|:---|
 |Admin1  | password|
-|Admin2  | password|
+<!-- |Admin2  | password|
 |Admin3  | password|
 |Patient1 | password|
 |Patient2 | password|
 |Patient3 | password|
 |Doctor1 | password|
 |Doctor2 | password|
-|Doctor3 | password|
+|Doctor3 | password| -->
  
 
 To access the H2 console to view the database go to https://localhost:8090/h2-console/ and enter:
@@ -158,7 +159,7 @@ Apart from this, some of the difficulty lay in knowing just how to integrate thi
 
 This meant I had to try to make a slightly more custom solution for Google Sign In, which brought with it, it's own complications on top of those previously mentioned. This being besdies that fact that I wanted Google Sign in to be an option that could be selected and unselected by users, as more an appendage to the regular account, which doesn't seem to be a consideration in Spring Framework, which is shown to support third party sign up and sign in, but not for having an existing account on the platform and then to be signed in via third party authentication (or at least I was unable to find any guidance on this approach from any existing documentation of the time).
 
-The project also does not have testing in place, mainly because I was focussed on trying to get as much of the idea realised as possible within time constraints.
+The project also does not have testing in place, mainly because I was focussed on trying to get as much of the idea realised as possible within time constraints with working on front and backends in tandem.
 
 ### Summary
 Overall, as mentioned, many aspect would still require some work to be complete and though the assignment/assessment is done, I would like to add some testing and finish off project as intented just for myself for the sake of completeness and finshing up what was started.
@@ -166,4 +167,5 @@ Overall, as mentioned, many aspect would still require some work to be complete 
 For now, however, it serves to show my understanding of Java, HTML, CSS, Javascipt, Gradle, Spring MVC and Hibernate at the time and in future maybe updated as I am able to in between working on other personal projects.
 
 ## Modifications
-In future once done: I have since gone back and have worked on completing aspects of the project not related to Google Cloud Console [see here for explaination](#main).
+I would like to go back and complete aspects of it, but for now there are some other projects I would like to work on that might prove a better learning experience and of more value currently.
+<!-- In future once done: I have since gone back and have worked on completing aspects of the project not related to Google Cloud Console [see here for explaination](#main). -->
