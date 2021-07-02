@@ -15,6 +15,7 @@ As this project was for university, it is online for the purpose of being on dis
 * [Project Shortcomings](#shortcomings)
 * [Modifications](#modifications)
 * [Trello Board](https://trello.com/b/e8hwRTpR/patientapp)
+* [Video Walkthrough - Youtube](https://www.youtube.com/watch?v=2LTY80dYC0g)
 
 ## Background
 My project was to create a system that would allow patients with chronic illness to arrange the ordering of their repeat prescriptions online rather than in person as well as to book appointments online. The purpose of this is to save them time that could be put to better use.
