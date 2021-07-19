@@ -5,6 +5,8 @@ Many aspects of the idea were not completed, as it was a big undertaking for one
 
 As this project was for university, it is online for the purpose of being on display as part of a portfolio of my work, but cannot be forked or used for any purpose beyond to be observed as evidence of my work and experience.
 
+Also be sure to see [YOUTUBE WALKTHROUGH](https://www.youtube.com/watch?v=2LTY80dYC0g&t=81s)
+
 ## Tables of Contents
 * [Background](#background)
 * [Images](#images)
@@ -172,4 +174,5 @@ I would like to go back and complete aspects of it, but for now there are some o
 <!-- In future once done: I have since gone back and have worked on completing aspects of the project not related to Google Cloud Console [see here for explaination](#main). -->
 
 ##Youtube Walkthrough
+
 https://www.youtube.com/watch?v=2LTY80dYC0g&t=81s
