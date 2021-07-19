@@ -15,7 +15,7 @@ As this project was for university, it is online for the purpose of being on dis
 * [Project Shortcomings](#shortcomings)
 * [Modifications](#modifications)
 * [Trello Board](https://trello.com/b/e8hwRTpR/patientapp)
-* [Video Walkthrough - Youtube](https://www.youtube.com/watch?v=2LTY80dYC0g)
+* [***Video Walkthrough - Youtube***](https://www.youtube.com/watch?v=2LTY80dYC0g&t=81s)
 
 ## Background
 My project was to create a system that would allow patients with chronic illness to arrange the ordering of their repeat prescriptions online rather than in person as well as to book appointments online. The purpose of this is to save them time that could be put to better use.
@@ -170,3 +170,6 @@ For now, however, it serves to show my understanding of Java, HTML, CSS, Javasci
 ## Modifications
 I would like to go back and complete aspects of it, but for now there are some other projects I would like to work on that might prove a better learning experience and of more value currently.
 <!-- In future once done: I have since gone back and have worked on completing aspects of the project not related to Google Cloud Console [see here for explaination](#main). -->
+
+##Youtube Walkthrough
+https://www.youtube.com/watch?v=2LTY80dYC0g&t=81s
